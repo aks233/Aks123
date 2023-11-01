@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Crack Time Estimator</title>
+</head>
+<body>
+    <h1>Password Crack Time Estimator</h1>
+    <form method="POST">
+        <label for="password">Enter your password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Estimate Crack Time">
+    </form>
+    {% if password %}
+    <h2>Results:</h2>
+    <p>Password: {{ password }}</p>
+    <p>Estimated Crack Time:</p>
+    <ul>
+        <li>Seconds: {{ estimated_time_seconds }}</li>
+        <li>Minutes: {% if estimated_time_seconds %}{{ estimated_time_seconds // 60 }}{% endif %}</li>
+	<li>Hours: {% if estimated_time_seconds %}{{ estimated_time_seconds // 3600 }}{% endif %}</li>
+	<li>Days: {% if estimated_time_seconds %}{{ estimated_time_seconds // 86400 }}{% endif %}</li>
+
+    </ul>
+    {% endif %}
+</body>
+</html>
